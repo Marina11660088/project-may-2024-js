@@ -4,19 +4,36 @@
     <meta charset="UTF-8">
     <title>posts</title>
     <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
         .divPost {
-
+            background: darkseagreen;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            border: navy solid;
+            width: 90%;
         }
         .divComments{
-
+            max-width: 1400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .dib{
-
+        .div{
+            background: darkseagreen;
+            padding: 5px;
+            width: 21%;
+            border-radius: 8px;
+            border: navy solid;
+            margin: 5px;
         }
-        .p{
-
-        }
-
     </style>
 </head>
 <body>
@@ -57,8 +74,6 @@
                 let div = document.createElement('div');
                 div.classList.add('div');
                 divComments.appendChild(div);
-
-
                 for (let commentElement in comment) {
                     let p = document.createElement('p');
                     div.appendChild(p);

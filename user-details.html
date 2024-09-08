@@ -4,18 +4,46 @@
     <meta charset="UTF-8">
     <title>users</title>
     <style>
-.divDetails{
-
-}
-.button1{
-
-}
-.divPosts{
-
-}
-
-
-
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .divDetails{
+            max-width: 600px;
+            margin: 20px;
+        }
+        .button1{
+            width: 90%;
+            background-color: grey;
+            border-radius: 4px;
+            height: 30px;
+        }
+        .divPosts{
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .ul {
+            width: 15%;
+            margin: 10px;
+            background: darkseagreen;
+            padding: 5px;
+            border-radius: 8px;
+            border: green solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            list-style-type: none;
+        }
+        .button2{
+            background-color: grey;
+            border-radius: 4px;
+            height: 20px;
+            width: 100px;
+        }
     </style>
 </head>
 <body>
@@ -74,14 +102,16 @@
     document.body.appendChild(divPosts);
     button1.addEventListener('click', ()=> {
         fetch(`https://jsonplaceholder.typicode.com/users/${userDetails.id}/posts`)
-        .then (res=> {
+            .then (res=> {
             return res.json();
         })
         .then(posts=> {
             for (let post of posts) {
                 let ul=document.createElement('ul');
                 divPosts.appendChild(ul);
+                ul.classList.add('ul');
                 console.log(post)
+
                 for (let postElement in post) {
                     if (postElement === 'title') {
                         let li = document.createElement('li');
@@ -96,10 +126,13 @@
                     localStorage.setItem('post', JSON.stringify(post));
                     window.location.href='post-details.html';
                 })
+
                 ul.appendChild(button2);
             }
         })
-    })
+
+    },{once: true})
+
 
 </script>
 
